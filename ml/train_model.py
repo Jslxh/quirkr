@@ -5,17 +5,17 @@ from sklearn.pipeline import Pipeline
 import joblib
 
 # Load dataset
-df = pd.read_csv('data/tasks_dataset.csv')
+df = pd.read_csv("data/tasks_dataset.csv")
 
-# Define model pipeline
+# Create pipeline
 model = Pipeline([
     ('tfidf', TfidfVectorizer()),
     ('clf', MultinomialNB())
 ])
 
-# Train the model
-model.fit(df['task'], df['category'])
+# Train model
+model.fit(df["task"], df["category"])
 
 # Save model
-joblib.dump(model, 'ml/model.pkl')
-print("Model trained and saved.")
+joblib.dump(model, "ml/model.pkl")
+print("✅ Model trained and saved to ml/model.pkl")
