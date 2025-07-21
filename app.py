@@ -14,7 +14,7 @@ if "tasks" not in st.session_state:
 
 st.markdown("""
     <h1 style='text-align: center; color: #6A1B9A;'>🔮 Quirkr</h1>
-    <h4 style='text-align: center;'>AI-Powered Task Organizer</h4>
+    <h4 style='text-align: center;'>Smart Task Organizer</h4>
 """, unsafe_allow_html=True)
 
 with st.expander("➕ Add a New Task", expanded=True):
