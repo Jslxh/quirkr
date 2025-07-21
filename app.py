@@ -47,7 +47,7 @@ else:
             st.caption(f"Category: `{task.get('category', 'None')}` | Created: {task.get('created_at', 'Unknown')}`")
 
         with col2:
-            if st.button("Mark Done ✅", key=f"done_{task['id']}"):
+            if st.button("Done ✅", key=f"done_{task['id']}"):
                 st.session_state.tasks[i]["done"] = True
                 st.rerun()
         with col3:
