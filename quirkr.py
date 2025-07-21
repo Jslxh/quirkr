@@ -1,9 +1,15 @@
+import joblib
+
 tasks = []  # List to store tasks
+
+# Load the ML model
+model = joblib.load("ml/model.pkl")
 
 def add_task():
     task = input("Enter task description: ")
-    tasks.append({"task": task, "done": False})
-    print("Task added.")
+    category = model.predict([task])[0]  # Predict category using ML
+    tasks.append({"task": task, "category": category, "done": False})
+    print(f"Task added. Predicted category: {category}")
 
 def view_tasks():
     if not tasks:
@@ -12,7 +18,7 @@ def view_tasks():
         print("\nYour To-Do List:")
         for idx, t in enumerate(tasks, 1):
             status = "Done" if t["done"] else "Pending"
-            print(f"{idx}. [{status}] {t['task']}")
+            print(f"{idx}. [{status}] {t['task']} (Category: {t['category']})")
 
 def mark_done():
     if not tasks:
@@ -45,7 +51,7 @@ def delete_task():
         print("Please enter a valid number.")
 
 def show_menu():
-    print("\nTO-DO APP MENU")
+    print("\nQUIRKR APP MENU")
     print("1. Add Task")
     print("2. View Tasks")
     print("3. Mark Task as Done")
