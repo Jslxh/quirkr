@@ -15,7 +15,7 @@ def view_tasks():
     if not tasks:
         print("No tasks yet.")
     else:
-        print("\nYour To-Do List:")
+        print("\nYour Quirkr's List:")
         for idx, t in enumerate(tasks, 1):
             status = "Done" if t["done"] else "Pending"
             print(f"{idx}. [{status}] {t['task']} (Category: {t['category']})")
