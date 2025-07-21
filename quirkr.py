@@ -1,13 +1,11 @@
 import joblib
 
-tasks = []  # List to store tasks
-
-# Load the ML model
 model = joblib.load("ml/model.pkl")
+tasks = []
 
 def add_task():
     task = input("Enter task description: ")
-    category = model.predict([task])[0]  # Predict category using ML
+    category = model.predict([task])[0]
     tasks.append({"task": task, "category": category, "done": False})
     print(f"Task added. Predicted category: {category}")
 
@@ -58,7 +56,6 @@ def show_menu():
     print("4. Delete Task")
     print("5. Exit")
 
-# Main Loop
 while True:
     show_menu()
     choice = input("Choose an option (1-5): ")
