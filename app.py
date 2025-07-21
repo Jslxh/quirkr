@@ -8,7 +8,7 @@ model = joblib.load("ml/model.pkl")
 if "tasks" not in st.session_state:
     st.session_state.tasks = []
 
-st.title("🧠 Quirkr - Smart To-Do App")
+st.title("Quirkr - Smart To-Do App")
 
 # Input box for task
 task_input = st.text_input("➕ Add a new task")
