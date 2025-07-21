@@ -44,7 +44,8 @@ else:
         with col1:
             status_icon = "✅" if task["done"] else "🕒"
             st.markdown(f"**{status_icon} {task['task']}**")
-            st.caption(f"Category: `{task['category']}` | Created: {task['created_at']}")
+            st.caption(f"Category: `{task.get('category', 'None')}` | Created: {task.get('created_at', 'Unknown')}`")
+
         with col2:
             if st.button("Mark Done ✅", key=f"done_{task['id']}"):
                 st.session_state.tasks[i]["done"] = True
