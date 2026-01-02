@@ -3,7 +3,7 @@ import joblib
 from datetime import datetime
 import uuid
 
-st.set_page_config(page_title="Quirkr - Smart Task Sorter", page_icon="🧠", layout="centered")
+st.set_page_config(page_title="Quirkr - Smart Task Sorter", layout="centered")
 
 # Load trained ML model
 model = joblib.load("ml/model.pkl")
@@ -47,11 +47,11 @@ else:
             st.caption(f"Category: `{task.get('category', 'None')}` | Created: {task.get('created_at', 'Unknown')}`")
 
         with col2:
-            if st.button("Done ✅", key=f"done_{task['id']}"):
+            if st.button("Done", key=f"done_{task['id']}"):
                 st.session_state.tasks[i]["done"] = True
                 st.rerun()
         with col3:
-            if st.button("Delete 🗑️", key=f"delete_{task['id']}"):
+            if st.button("Delete", key=f"delete_{task['id']}"):
                 st.session_state.tasks.pop(i)
                 st.rerun()
         st.markdown("---")
